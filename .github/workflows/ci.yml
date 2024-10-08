@@ -31,4 +31,11 @@ jobs:
     - name: Build with Gradle Wrapper
       run: ./gradlew build
 
- 
+    - name: Bulid and push docker images
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: kbfc902/my-image
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+       
